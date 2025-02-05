@@ -777,6 +777,8 @@ VolumeRender::VolumeRender(int resolution) : resolution(resolution) {
 }
 
 VolumeRender::VolumeRender(string path) {
+    printf("Path to access file: \n");
+    printf(path.c_str());
 
     if (FILE* file = fopen((path + ".bin").c_str(), "rb")) {
         fread(&resolution, sizeof(int), 1, file);

@@ -18,6 +18,7 @@ mono_crash.*
 
 # Build results
 [Bb]uild/
+build-gui/
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
@@ -349,3 +350,9 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+
+# TestCase
+/TestCase
+
+# Results
+/Results

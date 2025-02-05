@@ -5,6 +5,9 @@
 #include <chrono>
 #include <random>
 #include <iomanip>
+#if !LINUX
+#include <windows.h>
+#endif
 
 float CompareBias(string path, string name, string path2, string name2) {
 #if !LINUX
@@ -51,8 +54,10 @@ float CompareBias(string path, string name, string path2, string name2) {
 int main()
 {
     string GT_path = "./Results/GT/";
-    string predict_path = "./Results/";
-    string test_path = "./TestCase/";
+    string predict_path = "C:/Users/PHYQH/Documents/GitHub/MRPNN/Results/";
+    //string test_path = "./TestCase/";
+    string test_path = "C:/Users/PHYQH/Documents/GitHub/MRPNN/TestCase/";
+
 
     int sample_num = 1024;
     VolumeRender::RenderType RunType = VolumeRender::RenderType::MRPNN;
@@ -94,7 +99,7 @@ int main()
     FILE* log = fopen(Log_path.c_str(), "w");
     float2 avrg = { 0 };
     int start_time = clock();
-    for (int i = 0; i < test_num; i++)
+    for (int i = 1; i < test_num; i++) // Hardcoded, just run tests on CLOUD1, MODEL0, MODEL1 for now (Because CLOUD0 has been separately rendered once already)
     {
         string name = names[i];
         VolumeRender v(test_path + name);
